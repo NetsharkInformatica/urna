@@ -136,11 +136,24 @@ function confirma() {
         } else {
             document.querySelector('.tela').innerHTML = '<div class="aviso--gigante pisca">FIM</div>';
             console.log(votos);
-        }
+                //salvavotos
+            let texto=votos
+
+            let blob = new Blob([texto.values],
+                {
+                    type:"text/plain;charset=utf-8"
+                }
+                )
+                saveAs(blob,'contavoto.txt')
+
+                //gravavavotos
+            
     }
 }
 
 comecarEtapa();
+
+
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -152,4 +165,4 @@ if ('serviceWorker' in navigator) {
         console.log('Falha ao registrar o ServiceWorker:', error);
       });
   });
-}
+}}
